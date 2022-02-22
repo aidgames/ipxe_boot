@@ -11,3 +11,7 @@ def menu():
 @app.route("/tinycore.nogui")
 def tinycore_nogui():
   return send("tinycore_nogui.ipxe")
+
+@app.route("/debian.stable")
+def debian_stable():
+  return send("debian_stable.ipxe")
