@@ -7,7 +7,7 @@ set menu-default exit
 
 :start
 menu ipxe boot by aidgames
-item --key a tinycore_nogui tiny core linux no gui
+item tinycore_nogui tiny core linux no gui
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 set menu-timeout 0
