@@ -4,6 +4,10 @@ app=Flask(__name__)
 def send(file):
   return send_file(file,  as_attachment=True)
 
+@app.route("/")
+def index():
+  return send("ipxe.iso")
+
 @app.route("/menu.ipxe")
 def menu():
   return send("menu.ipxe")
