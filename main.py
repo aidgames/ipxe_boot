@@ -11,7 +11,7 @@ def index():
   elif request.args.get("type") == "UEFI":
     return send("ipxe_efi.iso")
   else:
-    return "<br>".join([f"<a href=\"/?type={i}\"> {i} </a>" for i in "UEFI", "BIOS"])
+    return "<br>".join([f"<a href=\"/?type={i}\"> {i} </a>" for i in ["UEFI", "BIOS"]])
 
 @app.route("/menu.ipxe")
 def menu():
