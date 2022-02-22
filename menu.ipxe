@@ -1,1 +1,22 @@
 #!ipxe
+set base https://raw.githubusercontent.com/aidgames/ipxe_boot/main
+set menu-timeout 5000
+set menu-default exit
+
+#MENU
+
+:start
+menu ipxe boot by aidgames
+item --key a tinycore_nogui tiny core linux no gui
+
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+set menu-timeout 0
+goto ${selected}
+
+:cancel
+echo dropping you to a shell
+
+
+:tinycore_nogui
+chain ${base}/tinycore_nogui.ipxe || goto failed
+goto start
