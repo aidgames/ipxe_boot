@@ -1,0 +1,9 @@
+#!ipxe
+
+set type bionic-updates
+set base http://archive.ubuntu.com/ubuntu/dists/${type}/main/installer-amd64/current/images/netboot/ubuntu-installer/amd64/
+
+
+kernel ${base}/linux initrd=initrd.gz
+initrd ${base}/initrd.gz
+boot
