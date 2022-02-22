@@ -1,13 +1,13 @@
-from flask import Flask
+from flask import Flask, send_file
 app=Flask(__name__)
+
+def send(file):
+  return send_file(file,  as_attachment=True)
 
 @app.route("/menu.ipxe")
 def menu():
-  with open("menu.ipxe", "r") as f:
-    return f.read()
-
+  return send("menu.ipxe")
 
 @app.route("/tinycore.nogui")
 def tinycore_nogui():
-  with open("tinycore_nogui.ipxe", "r") as f:
-    return f.read()
+  return send("tinycore_nogui.ipxe")
