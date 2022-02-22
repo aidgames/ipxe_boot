@@ -9,6 +9,7 @@ set menu-default cancel
 menu ipxe boot by aidgames
 item tinycore_nogui tiny core linux no gui
 item debian_stable debian stable amd64
+item ubuntu_bionic ubuntu bionic amd64
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 set menu-timeout 0
@@ -37,3 +38,8 @@ goto start
 
 :debian_stable
 chain ${base}/debian.stable || goto failed
+goto start
+
+:ubuntu_bionic
+chain ${base}/ubuntu.bionic || goto failed
+goto start
