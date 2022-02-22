@@ -1,0 +1,10 @@
+#!ipxe
+
+set base http://tinycorelinux.net/13.x/x86/release/distribution_files
+
+cpuid --ext 29 && set arch 64 || set arch
+
+kernel ${base}/vmlinuz${arch} initrd=rootfs.gz initrd=modules${arch}.gz
+initrd ${base}/rootfs.gz
+initrd ${base}/modules${arch}.gz
+boot
