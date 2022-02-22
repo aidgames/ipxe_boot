@@ -18,5 +18,5 @@ echo dropping you to a shell
 
 
 :tinycore_nogui
-chain ${base}/tinycore_nogui.ipxe || goto failed
+chain ${base}/tinycore.nogui || goto failed
 goto start
