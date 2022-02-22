@@ -25,6 +25,6 @@ def tinycore_nogui():
 def debian_stable():
   return send("debian_stable.ipxe")
 
-@app.route("ubuntu.bionic")
+@app.route("/ubuntu.bionic")
 def ubuntu_bionic():
   return send("ubuntu_bionic.ipxe")
