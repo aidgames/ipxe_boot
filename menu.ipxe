@@ -1,13 +1,14 @@
 #!ipxe
 set base http://ipxeboot.herokuapp.com/
 set menu-timeout 5000
-set menu-default exit
+set menu-default cancel
 
 #MENU
 
 :start
 menu ipxe boot by aidgames
 item tinycore_nogui tiny core linux no gui
+item debian_stable debian stable armd64
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 set menu-timeout 0
@@ -17,6 +18,22 @@ goto ${selected}
 echo dropping you to a shell
 
 
+:shell
+echo Type 'exit' to get the back to the menu
+shell
+set menu-timeout 0
+set submenu-timeout 0
+goto start
+
+:failed
+echo Booting failed, dropping to shell
+goto shell
+
+
+
 :tinycore_nogui
 chain ${base}/tinycore.nogui || goto failed
 goto start
+
+:debian_stable
+chain ${base}/debian.stable || goto failed
