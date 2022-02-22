@@ -1,5 +1,5 @@
 #!ipxe
-set base http://raw.githubusercontent.com/aidgames/ipxe_boot/main
+set base http://ipxeboot.herokuapp.com/
 set menu-timeout 5000
 set menu-default exit
 
