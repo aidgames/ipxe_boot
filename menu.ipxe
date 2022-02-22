@@ -8,7 +8,7 @@ set menu-default cancel
 :start
 menu ipxe boot by aidgames
 item tinycore_nogui tiny core linux no gui
-item debian_stable debian stable armd64
+item debian_stable debian stable amd64
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 set menu-timeout 0
