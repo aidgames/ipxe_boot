@@ -1,4 +1,4 @@
-from flask import Flask, send_file
+from flask import Flask, send_file, request
 app=Flask(__name__)
 
 def send(file):
@@ -6,7 +6,12 @@ def send(file):
 
 @app.route("/")
 def index():
-  return send("ipxe.iso")
+  if request.args.get("type") == "BIOS":
+    return send("ipxe.iso")
+  elif request.args.get("type") == "UEFI":
+    return send("ipxe_efi.iso")
+  else:
+    return "<br>".join([f"<a href=\"/?type={i}\"> {i} </a>" for i in "UEFI", "BIOS"])
 
 @app.route("/menu.ipxe")
 def menu():
