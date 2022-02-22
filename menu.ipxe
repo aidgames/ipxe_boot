@@ -1,5 +1,5 @@
 #!ipxe
-set base https://raw.githubusercontent.com/aidgames/ipxe_boot/main
+set base http://raw.githubusercontent.com/aidgames/ipxe_boot/main
 set menu-timeout 5000
 set menu-default exit
 
